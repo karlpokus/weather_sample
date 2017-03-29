@@ -20,6 +20,20 @@ export default {
 
 <style>
 /* global css for the time being*/
+@font-face {
+  font-family: "MeteoconsRegular";
+  src: url('./assets/fonts/meteocons-webfont.eot');
+  src: url('./assets/fonts/meteocons-webfont.woff') format('woff'),
+       url('./assets/fonts/meteocons-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+[data-icon]:before {
+  font-family: 'MeteoconsRegular';
+	content: attr(data-icon);
+  font-size:46px;
+}
+
 #inputbox, .city {
   padding:20px;
 }

@@ -1,6 +1,6 @@
 {
   "name": "weather",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "show weather by city",
   "author": "Karl Pokus <karl.pokus@gmail.com>",
   "private": true,
@@ -9,7 +9,9 @@
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "api-server": "node api-server/server.js",
+    "api-server-test": "bash api-server/test/api-test"
   },
   "dependencies": {
     "vue": "^2.2.2",

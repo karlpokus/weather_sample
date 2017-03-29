@@ -21,8 +21,8 @@ export default {
   },
   methods: {
     submit: function(e) { // onSubmit
-      function done() {
-        this.msg = '';
+      function done(str) {
+        this.msg = (str)? str: "";
       }
       
       this.msg = 'Searching..'

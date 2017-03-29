@@ -6,8 +6,8 @@ Vue.use(Vuex)
 var store = new Vuex.Store({
   state: {
     cities: [ // some temp data
-      {city: 'Amsterdam', icon: 'foo', temp: 4},
-      {city: 'London', icon: 'foo', temp: 12}
+      {city: 'Amsterdam', icon: 'B', temp: 4},
+      {city: 'London', icon: 'O', temp: 12}
     ]
   },
   mutations: {
@@ -24,30 +24,40 @@ var store = new Vuex.Store({
     },
     addCity: function(context, payload) {
       
-      function postCity(city, cb) {
+      function POST(city, cb) {
         var http = new XMLHttpRequest();
-        http.open('POST', 'api/test/');
+        http.open('POST', 'api/weather/');
+        http.onerror = cb.bind(null, 'api call failure');
         
         http.onreadystatechange = function() {
-          if (http.readyState == 4 && http.status == 200) {
-            cb(null, JSON.parse(http.responseText));
+          if (http.readyState == 4) {
+            
+            if (http.status == 200) {
+              cb(null, JSON.parse(http.responseText));
+              
+            } else if (http.status == 404) {
+              cb(city + ' not found');
+              
+            } else {
+              cb('Server failure');
+            }
           }
         }
-        http.send(city);
+        http.send(JSON.stringify({city: city}));
       }
       
-      function doCommit(err, data) {
-        // todo: check err
+      function doCommit(err, weather) {
+        if (err) return payload.cb(err);
         
         context.commit('addCity', {
-          city: payload.city,
-          icon: 'randomIcon',
-          temp: data.temp
+          city: weather.name,
+          icon: weather.weather.icon,
+          temp: weather.main.temp
         });
-        payload.cb();
+        payload.cb(null);
       }
       
-      postCity(payload.city, doCommit);
+      POST(payload.city, doCommit);
     }
   }
 });
