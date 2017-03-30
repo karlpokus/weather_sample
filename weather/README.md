@@ -5,7 +5,8 @@ Show weather by city. A work in progress.
 `api.openweathermap.org/data/2.5/weather` returns random error messages on `q=barbapappa`
 - `{"cod": "502", "message": "Error: Not found city"}`
 - `{"cod": "404", "message": "city not found"}`
-- For the time being, to be safe, you should check both `response.message` and `response.cod !== 200`
+- For the time being, to be safe, you should check the presence of `response.message` and `response.cod !== 200`
+- Also - There is no discernible mapping between `response.weather.icon` and [meteocons](http://www.alessioatzeni.com/meteocons/).
 
 # setup
 ``` bash
@@ -37,7 +38,9 @@ Note: api-server needs an `api_key` in `secrets.json` in root.
 - [x] simple api-server test
 - [ ] decide on `lang` and how inclusive we should be
 - [ ] client test with `mocha`
+- [x] client main UI
 - [x] weather icons
+- [ ] google fonts
 - [ ] deploy
 
 # license

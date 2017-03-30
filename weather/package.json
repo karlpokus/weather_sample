@@ -1,6 +1,6 @@
 {
   "name": "weather",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "show weather by city",
   "author": "Karl Pokus <karl.pokus@gmail.com>",
   "private": true,

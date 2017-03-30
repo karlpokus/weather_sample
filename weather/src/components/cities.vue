@@ -1,9 +1,11 @@
 <template>
   <ul class="cities">
     <li class="city" v-for="(city, index) in cities">
-      <span :data-icon="city.icon"></span>
-      <button @click="removeCity(index)">X</button>
-      <city :city="city"></city>
+      <div class="city-body" :style="{background:city.color}">
+        <span class="weather-icon" :data-icon="city.icon"></span>
+        <span class="remove-btn" :style="{color:city.color}" @click="removeCity(index)">×</span>
+        <city :city="city"></city>
+      </div>
     </li>
   </ul>
 </template>

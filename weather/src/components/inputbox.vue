@@ -1,7 +1,7 @@
 <template>
   <div id="inputbox">
-    <p>How's the weather in..</p>
-    <input v-model="city" @keyup.enter="submit" placeholder="city">
+    <p class="title">How's the weather in..</p>
+    <input v-model="city" @keyup.enter="submit" placeholder="Location">
     <feedback :msg="msg"></feedback>
   </div>
 </template>

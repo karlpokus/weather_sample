@@ -1,7 +1,8 @@
 <template>
-  <span>
-    It's {{city.temp}} degress in {{city.city}}
-  </span>
+  <div>
+    <p class="temp">{{city.temp}}<span class="degrees" data-icon="*"></span></p>
+    <p class="cityname">{{city.city}}</p>
+  </div>
 </template>
 
 <script>

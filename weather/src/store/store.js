@@ -6,8 +6,10 @@ Vue.use(Vuex)
 var store = new Vuex.Store({
   state: {
     cities: [ // some temp data
-      {city: 'Amsterdam', icon: 'B', temp: 4},
-      {city: 'London', icon: 'O', temp: 12}
+      {city: 'Amsterdam, Holland', icon: 'R', color: '#A4E4F3', temp: 4},
+      {city: 'London, England', icon: 'B', color:'#EB9861', temp: 12},
+      {city: 'Stockholm, Sweden', icon: 'E', color:'#36acc0', temp: 3},
+      {city: 'Moscow, the great Russian Federation', icon: 'H', color:'#E4B162', temp: -4}
     ]
   },
   mutations: {
@@ -23,6 +25,24 @@ var store = new Vuex.Store({
       context.commit('removeCity', payload);
     },
     addCity: function(context, payload) {
+      var weatherMap = {
+        "Clouds": {
+          icon: "H",
+          color: "#E4B162" // yellow
+        },
+        "Clear": {
+          icon: "B",
+          color: "#EB9861" // red
+        },
+        "Rain": {
+          icon: "R",
+          color: "#A4E4F3" // blue
+        },
+        "Mist": {
+          icon: "E",
+          color: "#36acc0" // dark blue
+        }
+      };
       
       function POST(city, cb) {
         var http = new XMLHttpRequest();
@@ -51,8 +71,9 @@ var store = new Vuex.Store({
         
         context.commit('addCity', {
           city: weather.name,
-          icon: weather.weather.icon,
-          temp: weather.main.temp
+          icon: weatherMap[weather.weather[0].main]? weatherMap[weather.weather[0].main].icon: 'M',
+          color: weatherMap[weather.weather[0].main]? weatherMap[weather.weather[0].main].color: '#000',
+          temp: Math.floor(weather.main.temp)
         });
         payload.cb(null);
       }
