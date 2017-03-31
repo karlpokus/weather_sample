@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "MeteoconsRegular";
+  src: url('../fonts/meteocons-webfont.eot');
+  src: url('../fonts/meteocons-webfont.woff') format('woff'),
+       url('../fonts/meteocons-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('../fonts/Pacifico-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Regular.ttf');
+  font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/Lato-Bold.ttf');
+  font-weight: bold;
+	font-style: normal;
+}
+[data-icon]:before {
+  font-family: 'MeteoconsRegular';
+	content: attr(data-icon);
+}

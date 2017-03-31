@@ -24,7 +24,7 @@ npm test
 ```
 
 # api-server
-```
+```bash
 # runs on port 5678. See proxytable in config/index.js for details
 $ npm run api-server
 # run test
@@ -36,11 +36,13 @@ Note: api-server needs an `api_key` in `secrets.json` in root.
 - [x] proxytable
 - [x] complete json api
 - [x] simple api-server test
-- [ ] decide on `lang` and how inclusive we should be
-- [ ] client test with `mocha`
+- [x] decide on `lang`
 - [x] client main UI
 - [x] weather icons
-- [ ] google fonts
+- [x] google fonts
+- [x] use `city.list.json`? nope.
+- [x] undecided on forced spelling
+- [ ] client test with `mocha`
 - [ ] deploy
 
 # license

@@ -1,0 +1,34 @@
+@media (min-width: 460px ) {
+  .city {
+    display:inline-block;
+    width:47%;
+    margin:0 10px 10px 0;
+  }
+  .city .temp {
+    font-size:32px;
+    padding:10px 0 10px 70px;
+  }
+  .city .temp .degrees {
+    font-size:16px;
+    margin:0;
+  }
+  .city .cityname {
+    padding:0 0 0 70px;
+  }
+}
+@media (min-width: 768px ) {
+  .city {
+    width:31%;
+  }
+  #inputbox {
+    margin:150px auto 50px auto;
+    padding:40px 40px;
+  }
+  .logo {
+    position:absolute;
+    top:20px;
+    left:0;
+    right:0;
+    /*margin: 0 auto;*/
+  }
+}

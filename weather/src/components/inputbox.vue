@@ -1,28 +1,34 @@
 <template>
   <div id="inputbox">
-    <p class="title">How's the weather in..</p>
+    <p class="title">{{msg}}</p>
     <input v-model="city" @keyup.enter="submit" placeholder="Location">
-    <feedback :msg="msg"></feedback>
   </div>
 </template>
 
 <script>
-import feedback from './feedback'
-
 export default {
-  components: {
-    feedback: feedback
-  },
   data: function() {
     return {
-      msg: '',
+      msg: "How's the weather in..",
       city: ''
     };
   },
   methods: {
-    submit: function(e) { // onSubmit
+    submit: function(e) {
+      
+      function resetUI() {
+        this.msg = "How's the weather in..";
+        this.city = '';
+      }
+    
       function done(str) {
-        this.msg = (str)? str: "";
+        if (!str) {
+          resetUI.call(this);
+          
+        } else {
+          this.msg = str;
+          setTimeout(resetUI.bind(this), 2500);
+        }
       }
       
       this.msg = 'Searching..'
@@ -31,8 +37,30 @@ export default {
         city: this.city,
         cb: done.bind(this)
       });
-      this.city = '';
     }
   }
 }
 </script>
+
+<style>
+#inputbox {
+  margin:0 auto;
+  padding:10px 20px;
+  max-width:500px;
+  background:rgba(255, 255, 255, .4);
+}
+#inputbox .title {
+  font-family: 'Pacifico', cursive;
+  text-align:center;
+  color:#444;
+  margin:0 0 10px 0;
+}
+#inputbox input {
+  font-family: 'Lato', sans-serif;
+  font-weight:700;
+  width:100%;
+  padding:10px;
+  box-sizing:border-box;
+  border:none;
+}
+</style>
