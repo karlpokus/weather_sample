@@ -1,17 +1,17 @@
 function request(city, cb) {
   var http = new XMLHttpRequest();
-      http.open('POST', 'api/weather/');
+      http.open('POST', 'api/v1/weather/');
       http.onerror = cb.bind(null, 'Sorry. api call failure');
-        
+
   http.onreadystatechange = function() {
     if (http.readyState == 4) {
-      
+
       if (http.status == 200) {
         cb(null, JSON.parse(http.responseText));
-            
+
       } else if (http.status == 404) {
         cb('Sorry. ' + city + ' not found');
-              
+
       } else {
         cb('Sorry. Server failure');
       }

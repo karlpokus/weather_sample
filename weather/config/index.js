@@ -24,18 +24,15 @@ module.exports = {
   dev: {
     env: require('./dev.env'),
     port: 8080,
-    autoOpenBrowser: true,
+    //autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      // proxy the request /api/posts/1 to [target]/posts/1
+      // proxy the request /api/posts/1 to [target]/posts/1 <- if re-write
       // https://vuejs-templates.github.io/webpack/proxy.html
       '/api': {
         target: 'http://localhost:5678',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
+        changeOrigin: true
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
