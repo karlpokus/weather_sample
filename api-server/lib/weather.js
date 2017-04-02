@@ -7,8 +7,8 @@ var path = require('path'),
     compileWeather = require(lib('compileWeather'));
 
 function cityNotFound(city, weather) {
-  return weather.message || weather.cod !== 200
-    // || city.city.toLowerCase() !== weather.name.toLowerCase(); not sure if this is a good idea
+  return weather.message || weather.cod !== 200;
+    // || city.city.toLowerCase() !== weather.name.toLowerCase();
 }
 
 module.exports = function(req, res, next) {
