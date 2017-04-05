@@ -7,11 +7,9 @@ var express = require('express'),
     },
     weather = require(lib('weather')),
     reply = require(lib('reply')),
-    errorhandler = require(lib('errorhandler')),
-    serveClient = require(lib('serveClient'));
+    errorhandler = require(lib('errorhandler'));
 
 app.use(express.static(path.resolve('dist')));
-app.get('/', serveClient);
 app.post('/api/v1/weather', [weather, reply]);
 app.use(errorhandler);
 
