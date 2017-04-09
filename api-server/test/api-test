@@ -1,1 +1,2 @@
-curl -X POST -d '{"city":"stockholm"}' http://localhost:5678/api/v1/weather
+json='{"city":"'"$1"'"}'
+curl -X POST -d $json http://localhost:5678/api/v1/weather
