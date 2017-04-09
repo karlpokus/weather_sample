@@ -33,23 +33,38 @@ var weatherMap = {
   }
 };
 
-module.exports = function(data) {
+function cityNotFound(weather) {
+  return weather.message || weather.cod !== 200;
+    // || city.city.toLowerCase() !== weather.name.toLowerCase();
+}
+
+function compile(data) {
   var payload = {};
-  
+
   if (data.weather.length &&
       data.weather[0].main &&
       weatherMap[data.weather[0].main]) {
-              
+
       payload.icon = weatherMap[data.weather[0].main].icon;
       payload.color = weatherMap[data.weather[0].main].color;
-          
+
   } else {
     payload.icon = weatherMap.unknown.icon;
     payload.color = weatherMap.unknown.color;
   }
-  
+
   payload.city = data.name + ', ' + data.sys.country;
   payload.temp = Math.floor(data.main.temp);
-  
+
   return payload;
+}
+
+module.exports = function(data) {
+  return new Promise(function(resolve, reject){
+
+    if (cityNotFound(data)) {
+      reject(new Error('Request error: city could not be found'));
+    }
+    resolve(compile(data));
+  });
 }

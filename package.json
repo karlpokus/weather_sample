@@ -1,6 +1,6 @@
 {
   "name": "weatherApp",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "show weather by city",
   "author": "Karl Pokus <karl.pokus@gmail.com>",
   "private": true,
@@ -11,7 +11,7 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
     "api-server": "node api-server/server.js",
-    "api-server-test": "bash api-server/test/api-test",
+    "api-test": "bash api-server/test/api-test",
     "now-build": "echo noop",
     "deploy": "now",
     "start": "npm run api-server"
