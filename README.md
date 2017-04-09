@@ -1,5 +1,5 @@
 # weatherApp
-Show weather by city per [these](https://github.com/Vinnovera/arbetsprov) requirements. [Demo](https://weatherapp-jarnauajrd.now.sh/)
+Show weather by city per [these](https://github.com/Vinnovera/arbetsprov) requirements. [Demo](https://weatherapp-qvijrebrzd.now.sh/)
 
 # usage
 Note: running the api-server requires an `api_key`.
@@ -16,7 +16,7 @@ $ npm run api-server
 $ npm test
 # run api-server test
 $ npm run api-server
-$ npm run api-server-test
+$ npm run api-test -- [city]
 ```
 
 ### production
