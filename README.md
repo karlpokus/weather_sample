@@ -1,5 +1,5 @@
 # weatherApp
-Show weather by city per [these](https://github.com/Vinnovera/arbetsprov) requirements. [Demo](https://weatherapp-qvijrebrzd.now.sh/)
+Show weather by city per [these](https://github.com/Vinnovera/arbetsprov) requirements. [Demo](https://weatherapp-nyzljwjuqd.now.sh/)
 
 # usage
 Note: running the api-server requires an `api_key`.
