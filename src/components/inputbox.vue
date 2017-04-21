@@ -9,34 +9,31 @@
 export default {
   data: function() {
     return {
-      msg: "How's the weather in..",
+      msg: '',
       city: ''
     };
   },
+  created: function() {
+    this.resetUI();
+  },
   methods: {
+    resetUI: function() {
+      this.msg = "How's the weather in..";
+      this.city = '';
+    },
     submit: function(e) {
-      
-      function resetUI() {
-        this.msg = "How's the weather in..";
-        this.city = '';
-      }
-    
-      function done(str) {
-        if (!str) {
-          resetUI.call(this);
-          
-        } else {
-          this.msg = str;
-          setTimeout(resetUI.bind(this), 2500);
-        }
-      }
-      
       this.msg = 'Searching..'
-      this.$store.dispatch({
-        type: 'addCity',
-        city: this.city,
-        cb: done.bind(this)
-      });
+      
+      this.$store
+        .dispatch({
+          type: 'addCity',
+          city: this.city,
+        })
+        .then(this.resetUI.bind(this))
+        .catch((err) => {
+          this.msg = err;
+          setTimeout(this.resetUI.bind(this), 2500);
+        });
     }
   }
 }

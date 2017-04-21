@@ -1,6 +1,6 @@
 {
   "name": "weatherApp",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "show weather by city",
   "author": "Karl Pokus <karl.pokus@gmail.com>",
   "private": true,

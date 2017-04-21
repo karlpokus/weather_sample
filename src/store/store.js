@@ -19,14 +19,14 @@ var store = {
       context.commit('removeCity', payload);
     },
     addCity: function(context, payload) {
-      function doCommit(err, weather) {
-        if (err) return payload.cb(err);
-
-        context.commit('addCity', weather);
-        payload.cb(null);
-      }
-
-      request(payload.city, doCommit);
+      return new Promise((resolve, reject) => {
+        request(payload.city)
+          .then((weather) => {
+            context.commit('addCity', weather);
+          })
+          .then(resolve)
+          .catch(reject);
+      });
     }
   }
 };
