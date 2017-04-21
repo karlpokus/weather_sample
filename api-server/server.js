@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    port = process.env.PORT || 5678,
+    port = (process.env.NODE_ENV === 'production')? process.env.PORT : 5678,
     path = require('path'),
     lib = function(str) {
       return path.resolve('api-server', 'lib', str);
