@@ -7,23 +7,23 @@
 
 <script>
 export default {
-  data: function() {
+  data() {
     return {
       msg: '',
       city: ''
     };
   },
-  created: function() {
+  created() {
     this.resetUI();
   },
   methods: {
-    resetUI: function() {
+    resetUI() {
       this.msg = "How's the weather in..";
       this.city = '';
     },
-    submit: function(e) {
+    submit(e) {
       this.msg = 'Searching..'
-      
+
       this.$store
         .dispatch({
           type: 'addCity',

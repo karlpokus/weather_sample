@@ -13,8 +13,8 @@ import cities from './components/cities'
 export default {
   name: 'app',
   components: {
-    inputbox: inputbox,
-    cities: cities
+    inputbox,
+    cities
   }
 }
 </script>

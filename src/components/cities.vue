@@ -15,18 +15,18 @@ import city from './city'
 
 export default {
   components: {
-    city: city
+    city
   },
   computed: {
-    cities: function() {
+    cities() {
       return this.$store.state.cities;
     }
   },
   methods: {
-    removeCity: function(index) {
+    removeCity(index) {
       this.$store.dispatch({
         type: 'removeCity',
-        index: index
+        index
       });
     }
   }
